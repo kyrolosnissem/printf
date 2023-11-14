@@ -20,6 +20,6 @@ int get_size(const char *format, int *i)
 	if (size == 0)
 		*i = val_i - 1;
 	else
-		*i = val_i
+		*i = val_i;
 	return (size);
 }
