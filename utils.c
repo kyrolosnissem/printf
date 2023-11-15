@@ -1,23 +1,23 @@
 #include "main.h"
 
 /**
- * is_printable - Determines if a character can be printed
- * @b: Char has to be assessed.
+ * is_printable - Evaluates if a char is printable
+ * @c: Char to be evaluated.
  *
- * Return: 0 if c cannot be printed, 1 if it can.
+ * Return: 1 if c is printable, 0 otherwise
  */
-int is_printable(char b)
+int is_printable(char c)
 {
-	if (b >= 32 && b < 127)
+	if (c >= 32 && c < 127)
 		return (1);
 
 	return (0);
 }
 
 /**
- * append_hexa_code - Append ascci to the buffer in hexadecimal code.
- * @buffer: Character array
- * @i: Index to begin appending.
+ * append_hexa_code - Append ascci in hexadecimal code to buffer
+ * @buffer: Array of chars.
+ * @i: Index at which to start appending.
  * @ascii_code: ASSCI CODE.
  * Return: Always 3
  */
@@ -38,25 +38,25 @@ int append_hexa_code(char ascii_code, char buffer[], int i)
 }
 
 /**
- * is_digit - Checks if a character is digit
- * @b: Char will be assessed
+ * is_digit - Verifies if a char is a digit
+ * @c: Char to be evaluated
  *
  * Return: 1 if c is a digit, 0 otherwise
  */
-int is_digit(char b)
+int is_digit(char c)
 {
-	if (b >= '0' && b <= '9')
+	if (c >= '0' && c <= '9')
 		return (1);
 
 	return (0);
 }
 
 /**
- * convert_size_number: This function converts a number to a given size
- * @num: The casting number
- * @size: The type to be cast, indicated by a number.
+ * convert_size_number - Casts a number to the specified size
+ * @num: Number to be casted.
+ * @size: Number indicating the type to be casted.
  *
- * Return: The num's cast value
+ * Return: Casted value of num
  */
 long int convert_size_number(long int num, int size)
 {
@@ -66,4 +66,21 @@ long int convert_size_number(long int num, int size)
 		return ((short)num);
 
 	return ((int)num);
+}
+
+/**
+ * convert_size_unsgnd - Casts a number to the specified size
+ * @num: Number to be casted
+ * @size: Number indicating the type to be casted
+ *
+ * Return: Casted value of num
+ */
+long int convert_size_unsgnd(unsigned long int num, int size)
+{
+	if (size == S_LONG)
+		return (num);
+	else if (size == S_SHORT)
+		return ((unsigned short)num);
+
+	return ((unsigned int)num);
 }
